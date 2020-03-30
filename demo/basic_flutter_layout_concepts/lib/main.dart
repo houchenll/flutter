@@ -32,7 +32,19 @@ class RowColumnWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[BlueBox(), BiggerBlueBox(), BlueBox()],
+      children: <Widget>[
+        BlueBox(),
+        Flexible(
+          flex: 1,
+          fit: FlexFit.tight,
+          child: BiggerBlueBox(),
+        ),
+        Flexible(
+          flex: 1,
+          fit: FlexFit.tight,
+          child: BlueBox(),
+        ),
+      ],
     );
   }
 }
