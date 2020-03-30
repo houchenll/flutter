@@ -27,21 +27,45 @@ class MyHome extends StatelessWidget {
 class RowColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-//    return Column(
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
       children: <Widget>[
-        BlueBox(),
-        Spacer(
-          flex: 1,
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            BlueBox(),
+            Spacer(
+              flex: 1,
+            ),
+            SizedBox(
+              width: 100,
+              child: BlueBox(),
+            ),
+            BlueBox(),
+          ],
         ),
-        SizedBox(
-          width: 100,
-          child: BlueBox(),
-        ),
-        BlueBox(),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          textBaseline: TextBaseline.alphabetic,
+          children: <Widget>[
+            Text(
+              'Hey',
+              style: TextStyle(
+                  fontSize: 30, fontFamily: 'Futura', color: Colors.blue),
+            ),
+            Text(
+              'Hey',
+              style: TextStyle(
+                  fontSize: 50, fontFamily: 'Futura', color: Colors.green),
+            ),
+            Text(
+              'Hey',
+              style: TextStyle(
+                  fontSize: 40, fontFamily: 'Futura', color: Colors.red),
+            )
+          ],
+        )
       ],
     );
   }
