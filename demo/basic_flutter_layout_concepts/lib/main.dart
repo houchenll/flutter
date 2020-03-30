@@ -90,7 +90,8 @@ class RowColumnWidget extends StatelessWidget {
               height: 100,
             )
           ],
-        )
+        ),
+        BusinessCardWidget()
       ],
     );
   }
@@ -114,6 +115,68 @@ class BiggerBlueBox extends StatelessWidget {
       width: 50,
       height: 100,
       decoration: BoxDecoration(color: Colors.blue, border: Border.all()),
+    );
+  }
+}
+
+class BusinessCardWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 280,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          // 1. 头像和姓名
+          Row(
+            children: <Widget>[
+              // 头像
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.account_circle, size: 50),
+              ),
+              // 姓名
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Liu Lei',
+                    style: Theme.of(context).textTheme.headline,
+                  ),
+                  Text('Experienced App Developer')
+                ],
+              )
+            ],
+          ),
+          // 空白分隔条
+          SizedBox(
+            height: 8,
+          ),
+          // 2. 地址和电话
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[Text('123 Main Street'), Text('(415) 555-0198')],
+          ),
+          // 空白分隔条
+          SizedBox(
+            height: 16,
+          ),
+          // 3. 图标
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Icon(Icons.accessibility),
+              Icon(Icons.timer),
+              Icon(Icons.phone_android),
+              Icon(Icons.phone_iphone),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
