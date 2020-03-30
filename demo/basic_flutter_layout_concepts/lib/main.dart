@@ -65,6 +65,22 @@ class RowColumnWidget extends StatelessWidget {
                   fontSize: 40, fontFamily: 'Futura', color: Colors.red),
             )
           ],
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          textBaseline: TextBaseline.alphabetic,
+          children: <Widget>[
+            Icon(
+              Icons.widgets,
+              size: 50,
+              color: Colors.blue,
+            ),
+            Icon(
+              Icons.widgets,
+              size: 50,
+              color: Colors.red,
+            )
+          ],
         )
       ],
     );
