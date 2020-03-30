@@ -34,7 +34,9 @@ class RowColumnWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         BlueBox(),
-        Expanded(
+        SizedBox(),
+        SizedBox(
+          width: 100,
           child: BlueBox(),
         ),
         BlueBox(),
