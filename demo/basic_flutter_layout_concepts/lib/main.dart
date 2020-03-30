@@ -81,6 +81,15 @@ class RowColumnWidget extends StatelessWidget {
               color: Colors.red,
             )
           ],
+        ),
+        Row(
+          children: <Widget>[
+            Image.network(
+              "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585569482792&di=3f2897deeda06165c5a2b6c2a2f653bf&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20200105%2Fc5162a9d6f484ce3b8ff464b27f8865f.jpeg",
+              width: 100,
+              height: 100,
+            )
+          ],
         )
       ],
     );
