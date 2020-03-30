@@ -22,22 +22,19 @@ class MyHome extends StatelessWidget {
       body: RowColumnWidget(),
     );
   }
-
 }
 
 class RowColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
 //    return Column(
-      children: <Widget>[
-        BlueBox(),
-        BlueBox(),
-        BlueBox()
-      ],
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[BlueBox(), BiggerBlueBox(), BlueBox()],
     );
   }
-
 }
 
 class BlueBox extends StatelessWidget {
@@ -46,11 +43,18 @@ class BlueBox extends StatelessWidget {
     return Container(
       width: 50,
       height: 50,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        border: Border.all()
-      ),
+      decoration: BoxDecoration(color: Colors.blue, border: Border.all()),
     );
   }
+}
 
+class BiggerBlueBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 50,
+      height: 100,
+      decoration: BoxDecoration(color: Colors.blue, border: Border.all()),
+    );
+  }
 }
