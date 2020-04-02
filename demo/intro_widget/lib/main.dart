@@ -255,6 +255,21 @@ class _ShoppingListState extends State<ShoppingList> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    // called after call createState(), do work that needs to happen just once here.
+    // For example, override initState to configure animations or to subscribe to platform services.
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // When a state object is no longer needed, the framework calls dispose() on the state object.
+    // Override the dispose function to do cleanup work.
+    // For example, override dispose to cancel timers or to unsubscribe from platform services.
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
