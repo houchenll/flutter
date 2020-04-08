@@ -27,14 +27,16 @@ class MyApp extends StatelessWidget {
 // -------------------- TapBoxA ---------------------------
 
 class TapBoxA extends StatefulWidget {
+  TapBoxA({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _TapBoxAState();
 }
 
 class _TapBoxAState extends State<TapBoxA> {
-  bool _active;
+  bool _active = false;
 
-  void _onTap() {
+  void _handleTap() {
     setState(() {
       _active = !_active;
     });
@@ -43,18 +45,18 @@ class _TapBoxAState extends State<TapBoxA> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _onTap,
+      onTap: _handleTap,
       child: Container(
         child: Center(
           child: Text(
-            _active ? 'Active' : 'Inactive'
+            _active ? 'Active' : 'Inactive',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
           ),
         ),
-        width: 100,
-        height: 100,
+        width: 200.0,
+        height: 200.0,
         decoration: BoxDecoration(
-          color: _active ? Colors.lightGreen[700] : Colors.green[600]
-        ),
+            color: _active ? Colors.lightGreen[700] : Colors.grey[600]),
       ),
     );
   }
