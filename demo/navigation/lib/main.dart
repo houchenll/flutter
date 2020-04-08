@@ -7,7 +7,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: FirstRoute(),
+//      home: FirstRoute(),    // home can't be used together with initialRoute
+      initialRoute: '/',
+      routes: {
+        '/': (context) => FirstRoute(),
+        '/second': (context) => SecondRoute(),
+      },
     );
   }
 }
@@ -24,8 +29,9 @@ class FirstRoute extends StatelessWidget {
           child: Text('Open route'),
           onPressed: () {
             // Navigate to second route when tapped.
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SecondRoute()));
+//            Navigator.push(context,
+//                MaterialPageRoute(builder: (context) => SecondRoute()));
+            Navigator.pushNamed(context, '/second');
           },
         ),
       ),
