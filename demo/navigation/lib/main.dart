@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 //              20,
 //              (i) => Todo('Todo $i',
 //                  'A description for what need to be done for Todo $i'))),
-      home: HomeScreen(),
+      home: HomeScreenB(),
 //      initialRoute: '/',
       routes: {
 //        '/': (context) => FirstRoute(),
@@ -259,4 +259,88 @@ class ScreenArguments {
   final String message;
 
   ScreenArguments(this.title, this.message);
+}
+
+// ---------------------- return data ------------------------------
+
+class HomeScreenB extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Return data demo'),
+      ),
+      body: Center(
+        child: SelectionButton(),
+      ),
+    );
+  }
+}
+
+// Launches the SelectionScreen when it’s tapped.
+// Waits for the SelectionScreen to return a result.
+class SelectionButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: () {
+        _navigateAndDisplaySelection(context);
+      },
+      child: Text('Pick an option'),
+    );
+  }
+
+  // A method that launches the SelectionScreen and awaits the
+  // result from Navigator.pop.
+  void _navigateAndDisplaySelection(BuildContext context) async {
+    // Navigator.push returns a Future that completes after calling
+    // Navigator.pop on the Selection Screen.
+    final result = await Navigator.push(context, MaterialPageRoute(
+      builder: (context) => SelectionScreen()
+    ));
+
+    // After the Selection Screen returns a result, hide any previous snackbars
+    // and show the new result.
+    Scaffold.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text("$result")));
+  }
+}
+
+class SelectionScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Pick an option'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
+                  // Pop here with "Yep"...
+                  Navigator.pop(context, 'Yep!');
+                },
+                child: Text('Yep!'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
+                  // Pop here with "Nope"
+                  Navigator.pop(context, 'Nope!');
+                },
+                child: Text('Nope.'),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
