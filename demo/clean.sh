@@ -22,9 +22,13 @@ function getdir() {
             echo "delete dir "$dir_gradle
             rm -rf $dir_gradle
 
-            dir_ios=$dir_or_file"/ios/Flutter/"
-            echo "delete dir "$dir_ios
-            rm -rf $dir_ios
+            dir_app_frame=$dir_or_file"/ios/Flutter/App.framework/"
+            echo "delete dir "$dir_app_frame
+            rm -rf $dir_app_frame
+
+            dir_flutter_frame=$dir_or_file"/ios/Flutter/Flutter.framework/"
+            echo "delete dir "$dir_flutter_frame
+            rm -rf $dir_flutter_frame
         fi
     done
 }
